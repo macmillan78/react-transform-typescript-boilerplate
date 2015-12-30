@@ -31,7 +31,7 @@ export class Counter extends Component<CounterProps, CounterState> {
   render() {
     return (
         <h1 style={{ color: this.props.color }}>
-          Counter  moin Johannes ({this.props.increment}): {this.state.counter}
+          Counter ({this.props.increment}): {this.state.counter}
         </h1>
     );
   }

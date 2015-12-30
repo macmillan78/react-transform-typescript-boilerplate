@@ -9,8 +9,7 @@ export class App extends Component<{}, {}> {
   render() {
     return (
       <div className={style.app}>
-        <div>Test fdsklfjdslgbdfbgmfndjflds</div>
-        <div>Ping Pong</div>
+        <div>Some text here.</div>
         <Counter increment={1} color={NICE} />
         <Counter increment={5} color={SUPER_NICE} />
       </div>
