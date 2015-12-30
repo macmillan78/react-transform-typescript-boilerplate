@@ -6,7 +6,7 @@ module.exports = {
   entry: [
     'eventsource-polyfill', // necessary for hot reloading with IE
     'webpack-hot-middleware/client',
-    './src/index'
+    './src/index.ts'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -17,11 +17,22 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
+  resolve: {
+    modulesDirectories: ['src', 'node_modules'],
+    extensions: ['', '.js', '.webpack.js', '.web.js', '.ts', '.tsx']
+  },
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loaders: ['babel'],
-      include: path.join(__dirname, 'src')
-    }]
+    loaders: [
+      {
+        test: /\.tsx?$/,
+        loaders: ['babel', 'ts'],
+        include: path.join(__dirname, 'src')
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css?sourceMap&modules', 'sass?sourceMap'],
+        include: path.join(__dirname, 'src')
+      }
+    ]
   }
 };
